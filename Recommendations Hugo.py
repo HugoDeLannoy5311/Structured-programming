@@ -31,6 +31,9 @@ def url_website(url):
     sub_category = None
     sub_sub_category = None
     selling_price = None
+    max_price = None
+    min_price = None
+
     print(url)
     deel = url.split("/")
     print(deel)
@@ -96,6 +99,7 @@ def top_sales_product_category(productdata):
     parameters: productid, category, sub_category, sub_sub_category, selling_price. Deze kunnen: None zijn
     Returns: Een list van de 5 meest verkochte producten die aan de opgegeven parameters voldoen
     """
+
     productid = productdata[0]
     category = productdata[1]
     sub_category = productdata[2]
@@ -187,11 +191,11 @@ def top_sales_product_category(productdata):
             print(product)
             product_rec_list.append(product[1])
         if teller == 5:
-            return product_rec_list             #returnt een list van de 5 producten
+            return "recommendations: ",product_rec_list           #returnt een list van de 5 producten
 
 
 
-#print(top_sales_product_category(url_website("GET /producten/huishouden/toilet-en-keuken/ HTTP/1.1")))
+print(top_sales_product_category(url_website("GET /producten/huishouden/toilet-en-keuken/ HTTP/1.1")))
 
 
 
@@ -220,7 +224,7 @@ def alle_producten():
         x += 1
 
 
-alle_producten()
+#alle_producten()
 
 cursor.close()
 conn.close()
